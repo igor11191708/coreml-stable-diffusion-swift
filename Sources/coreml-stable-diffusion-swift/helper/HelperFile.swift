@@ -57,6 +57,7 @@ public func getImage(from data : Data) -> Image?{
 public func emptyImageTpl(width: CGFloat? = nil, height: CGFloat? = nil, systemName: String = "photo" ) -> some View{
     Image(systemName: systemName)
         .resizable()
+        .renderingMode(.template)
         .scaledToFit()
         .frame(width: width, height: height)
 }
