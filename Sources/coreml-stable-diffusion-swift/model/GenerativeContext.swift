@@ -10,7 +10,7 @@ import StableDiffusion
 import CoreML
 
 @available(iOS 16.2, macOS 13.1, *)
-struct GenerativeContext: Hashable{
+public struct GenerativeContext: Hashable{
     
     let config : StableDiffusionPipeline.Configuration
     

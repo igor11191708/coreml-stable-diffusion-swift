@@ -8,10 +8,18 @@
 import Foundation
 
 @available(iOS 16.2, macOS 13.1, *)
-struct GenerativeModel: Hashable{
+public struct GenerativeModel: Hashable, Identifiable{
     
-    let url: URL
+    public init(url: URL? = nil, name: String) {
+        self.url = url
+        self.name = name
+    }
     
-    let name: String
+    
+    public let id = UUID()
+    
+    public let url: URL?
+    
+    public let name: String
     
 }
