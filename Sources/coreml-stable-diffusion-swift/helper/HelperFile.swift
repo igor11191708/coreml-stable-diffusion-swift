@@ -5,12 +5,12 @@
 //  Created by Igor on 22.03.2023.
 //
 
-import Foundation
 import AppKit
 import Files
-import SwiftUI
 
-@available(iOS 16.2, macOS 13.1, *)
+#if os(macOS)
+
+@available(macOS 13.1, *)
 public func listOfModels() async -> [GenerativeModel] {
     
     guard let docs = Folder.documents,let folder = try? docs.subfolder(at: "models") else{
@@ -22,7 +22,7 @@ public func listOfModels() async -> [GenerativeModel] {
     }
 }
 
-@available(iOS 16.2, macOS 13.1, *)
+@available(macOS 13.1, *)
 public func showInFinder() {
     guard let url = Folder.documents?.url else { return }
     
@@ -33,7 +33,7 @@ public func showInFinder() {
     }
 }
 
-@available(iOS 16.2, macOS 13.1, *)
+@available(macOS 13.1, *)
 public func initFolder(name : String) throws{
     if let docs = Folder.documents{
         if docs.containsSubfolder(named: name) == false{
@@ -42,22 +42,4 @@ public func initFolder(name : String) throws{
     }
 }
 
-#if os(macOS)
-public func getImage(from data : Data) -> Image?{
-    guard let nsImage = NSImage(data: data) else {
-        return nil
-    }
-    
-    return Image(nsImage: nsImage)
-}
 #endif
-
-@ViewBuilder
-@available(iOS 16.2, macOS 13.1, *)
-public func emptyImageTpl(width: CGFloat? = nil, height: CGFloat? = nil, systemName: String = "photo" ) -> some View{
-    Image(systemName: systemName)
-        .resizable()
-        .renderingMode(.template)
-        .scaledToFit()
-        .frame(width: width, height: height)
-}
