@@ -23,7 +23,14 @@ public func getImage(from data : Data?) -> Image?{
         return nil
     }
     
-    return Image(nsImage: nsImage)
+    let size : NSSize = .init(width: 512, height: 512)
+    
+    guard let cropped = nsImage.crop(size: size)else{
+                return nil
+            }
+    
+    print(cropped.width, cropped.height)
+    return Image(nsImage: cropped)
 }
 
 public func getImage(cgImage : CGImage?) -> Image?{
@@ -31,8 +38,8 @@ public func getImage(cgImage : CGImage?) -> Image?{
     guard let value = cgImage else{
         return nil
     }
-    
-    let nsImage = NSImage(cgImage: value, size: .init(width: 512, height: 512))
+        
+    let nsImage = NSImage(cgImage: value, size: .init(width: value.width, height: value.height))
     
     return Image(nsImage: nsImage)
 }
