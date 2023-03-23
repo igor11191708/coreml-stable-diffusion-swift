@@ -13,9 +13,11 @@ import AppKit
 /// https://stackoverflow.com/questions/24595908/swift-nsimage-to-cgimage
 @available(macOS 13.1, *)
 extension NSImage {
-    var CGImage: CGImage {
+   public var CGImage: CGImage? {
         get {
-            let imageData = self.tiffRepresentation!
+            guard let imageData = self.tiffRepresentation else{
+                return nil
+            }
             let source = CGImageSourceCreateWithData(imageData as CFData, nil).unsafelyUnwrapped
             let maskRef = CGImageSourceCreateImageAtIndex(source, Int(0), nil)
             return maskRef.unsafelyUnwrapped
@@ -66,12 +68,12 @@ extension NSImage {
         // Set the drawing context and make sure to remove the focus before returning.
         img.lockFocus()
         defer { img.unlockFocus() }
-        
+
         // Draw the new image
         if rep.draw(in: frame) {
             return img
         }
-        
+
         // Return nil in case something went wrong.
         return nil
     }

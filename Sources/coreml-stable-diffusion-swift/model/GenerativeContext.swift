@@ -22,7 +22,7 @@ public struct GenerativeContext: Hashable{
 public func getConfig (
     _ prompt : String,
     _ negativePrompt : String,
-    _ inputImage : Data?, //CGImage?
+    _ inputImage : CGImage?,
     _ seed : UInt32,
     _ strength : Float,
     _ guidanceScale : Float,
@@ -31,10 +31,8 @@ public func getConfig (
     _ schedulerType : StableDiffusionScheduler
     ) -> StableDiffusionPipeline.Configuration{
         var cfg = StableDiffusionPipeline.Configuration(prompt: prompt)
-        
-        if let data = inputImage{
-            cfg.startingImage = getCGImage(from: data)
-        }
+
+        cfg.startingImage = inputImage
         cfg.negativePrompt = negativePrompt
         cfg.strength = strength
         cfg.stepCount = Int(stepCount)

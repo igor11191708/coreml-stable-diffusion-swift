@@ -13,8 +13,16 @@ import SwiftUI
 import AppKit
 
 @available(macOS 13.1, *)
-public func getImage(from data : Data?) -> Image?{
+public func getImage(from data : Data?, cropped toSize : NSSize? = nil) async -> Image?{
     
+    guard let nsImage = await getNSImage(from: data, cropped: toSize) else{ return nil }
+    
+    return Image(nsImage: nsImage)
+}
+
+@available(macOS 13.1, *)
+public func getNSImage(from data : Data?, cropped toSize : NSSize? = nil) async -> NSImage? {
+
     guard let value = data else{
         return nil
     }
@@ -23,14 +31,15 @@ public func getImage(from data : Data?) -> Image?{
         return nil
     }
     
-    let size : NSSize = .init(width: 512, height: 512)
+    guard let size = toSize else{
+        return nsImage
+    }
     
     guard let cropped = nsImage.crop(size: size)else{
                 return nil
             }
     
-    print(cropped.width, cropped.height)
-    return Image(nsImage: cropped)
+    return cropped
 }
 
 public func getImage(cgImage : CGImage?) -> Image?{
