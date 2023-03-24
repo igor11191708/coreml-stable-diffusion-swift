@@ -19,10 +19,10 @@ There are numerous versions of Stable Diffusion available on the Hugging Face Hu
             )
 ```
 
-## How to run an example app
+## How to run the example app
 
-### 1. Download a prepared model from Hugging Face Hub
-You can open a couple of links to the models from the UI of the example app
+### 1. Download a prepared **split einsum** model from Hugging Face Hub.
+You can follow to the set of ready to use models from the UI of the example app by clicking on buttons **Apple models** or **CoreML models**
 
   ![Http requests](https://github.com/The-Igor/coreml-stable-diffusion-swift/blob/main/Sources/img/links_to_models.png) 
 or follow the links 
