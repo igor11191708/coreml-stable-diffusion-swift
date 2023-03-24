@@ -51,6 +51,7 @@ Click the button **Local models** and move there downloaded models
 ### 3. Run the app example
 Take a look on the video demonstration
 
+  ![Http requests](https://github.com/The-Igor/coreml-stable-diffusion-swift/blob/main/Sources/img/coreml_stable_diffusion.gif) 
 
 ## SwiftUI example for the package
 
