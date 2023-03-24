@@ -11,7 +11,7 @@ import CoreML
 
 /// The manager for generating images
 @available(iOS 16.2, macOS 13.1, *)
-public actor GenerativeManager{
+public actor GenerativeManager: IGenerativeManager{
    
     // MARK: - Life circle
     
