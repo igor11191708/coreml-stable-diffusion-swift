@@ -64,3 +64,5 @@ Take a look on [the video demonstration](https://youtu.be/oaaJums6f8c)
 ## Used packages
 [Files](https://github.com/JohnSundell/Files)
 [Stable Diffusion](https://github.com/apple/ml-stable-diffusion)
+
+Disclaimer : It's not official Hugging Face package for running text-to-image or image-to-image models from [Hugging Face](https://huggingface.co) to generate images
