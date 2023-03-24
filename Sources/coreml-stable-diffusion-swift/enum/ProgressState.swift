@@ -16,8 +16,8 @@ public enum ProgressState{
     case running
     /// Finished successfully
     case finished
-    /// Canceled
-    case canceled
+    /// Canceling
+    case canceling
     /// Failed with an error
     case failed
 }
