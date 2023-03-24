@@ -2,7 +2,7 @@
 
 There are numerous versions of Stable Diffusion available on the Hugging Face Hub
 
-  ![Http requests](https://github.com/The-Igor/coreml-stable-diffusion-swift/blob/main/Sources/img/app_example.png) 
+  ![Http requests](https://github.com/The-Igor/coreml-stable-diffusion-swift/blob/main/Sources/img/app.png) 
 
 ## How to use the package
 ### 1. Create GenerativeManager
