@@ -2,6 +2,8 @@
 
 There are numerous versions of Stable Diffusion available on the Hugging Face Hub
 
+  ![Http requests](https://github.com/The-Igor/coreml-stable-diffusion-swift/blob/main/Sources/img/app_example.png) 
+
 ## How to use
 ### 1. Create GenerativeManager
 
@@ -44,3 +46,16 @@ if you want to prepare model bundle on your own take a look on this tutorial
 Click the button **Local models** and move there downloaded models
   ![Http requests](https://github.com/The-Igor/coreml-stable-diffusion-swift/blob/main/Sources/img/local_button.png)   
   ![Http requests](https://github.com/The-Igor/coreml-stable-diffusion-swift/blob/main/Sources/img/local_models_folder.png) 
+
+### 3. Run the app example
+Take a look on the video demonstration
+
+
+
+## SwiftUI example for the package
+
+[CoreML stable diffusion image generation example](https://github.com/The-Igor/stable-diffusion-swift-example)
+
+## Used by packages
+
+[Replicate toolkit for swift](https://github.com/The-Igor/replicate-kit-swift)
