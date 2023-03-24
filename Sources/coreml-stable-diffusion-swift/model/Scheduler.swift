@@ -9,7 +9,7 @@ import SwiftUI
 import StableDiffusion
 
 @available(iOS 16.2, macOS 13.1, *)
-public extension ModelsManager{
+public extension GenerativeManager{
     
     /// Schedulers compatible with StableDiffusionPipeline
     @available(iOS 16.2, macOS 13.1, *)
