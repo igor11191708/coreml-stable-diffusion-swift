@@ -20,5 +20,4 @@ public enum ProgressState{
     case canceled
     /// Failed with an error
     case failed
-    
 }
