@@ -49,7 +49,7 @@ Click the button **Local models** and move there downloaded models
   ![Http requests](https://github.com/The-Igor/coreml-stable-diffusion-swift/blob/main/Sources/img/local_models_folder.png) 
 
 ### 3. Run the app example
-Take a look on the video demonstration
+Take a look on [the video demonstration](https://youtu.be/GYC8VveChHI)
 
   ![Http requests](https://github.com/The-Igor/coreml-stable-diffusion-swift/blob/main/Sources/img/coreml_stable_diffusion.gif) 
 
