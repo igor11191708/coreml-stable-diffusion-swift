@@ -11,7 +11,7 @@ import Files
 #if os(macOS)
 
 @available(macOS 13.1, *)
-public func listOfModels() async -> [GenerativeModel] {
+internal func listOfModels() async -> [GenerativeModel] {
     
     guard let docs = Folder.documents,let folder = try? docs.subfolder(at: "models") else{
             return []
