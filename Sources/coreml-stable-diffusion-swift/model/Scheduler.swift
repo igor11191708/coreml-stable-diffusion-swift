@@ -24,7 +24,7 @@ public extension ModelsManager{
         public func hash(into hasher: inout Hasher) {
             hasher.combine(name)
         }
-    }    
+    }
     
     /// Default scheduler
     static let defaultScheduler : Scheduler = .init(type: .dpmSolverMultistepScheduler, name: "dpmSolverMultistep", description: "Scheduler that uses a second order DPM-Solver++ algorithm")
