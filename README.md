@@ -4,6 +4,9 @@ The package is a mediator between [Stable Diffusion](https://github.com/apple/ml
 
   ![Http requests](https://github.com/The-Igor/coreml-stable-diffusion-swift/blob/main/Sources/img/app.png) 
 
+## Huggingface/swift-coreml-diffusers
+[Swift app demonstrating Core ML Stable Diffusion](https://github.com/huggingface/swift-coreml-diffusers)
+
 ## How to use the package
 ### 1. Create GenerativeManager
 
