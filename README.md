@@ -42,5 +42,5 @@ if you want to prepare model bundle on your own take a look on this tutorial
 
 ### 2. Put the models to working model directory
 Click the button **Local models** and move there downloaded models
-  ![Http requests](https://github.com/The-Igor/coreml-stable-diffusion-swift/blob/main/Sources/img/links_to_models.png)   
-  ![Http requests](https://github.com/The-Igor/coreml-stable-diffusion-swift/blob/main/Sources/img/local_models.png) 
+  ![Http requests](https://github.com/The-Igor/coreml-stable-diffusion-swift/blob/main/Sources/img/local_button.png)   
+  ![Http requests](https://github.com/The-Igor/coreml-stable-diffusion-swift/blob/main/Sources/img/local_models_folder.png) 
