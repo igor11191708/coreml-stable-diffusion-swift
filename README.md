@@ -17,7 +17,7 @@ There are numerous versions of Stable Diffusion available on the Hugging Face Hu
             )
 ```
 
-#How to run an example app
+# How to run an example app
 
 ## 1. Download a prepared model from Hugging Face Hub
 You can open a couple of links to the models from the UI of the example app
