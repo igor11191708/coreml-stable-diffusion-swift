@@ -10,8 +10,11 @@ import StableDiffusion
 import CoreML
 
 @available(iOS 16.2, macOS 13.1, *)
+/// The manager for generating images 
 public actor ModelsManager{
    
+    // MARK: - Life circle
+    
     public init(){ }
     
     // MARK: - API
@@ -22,6 +25,12 @@ public actor ModelsManager{
          await listOfModels()
     }
     
+    /// Generate images
+    /// - Parameters:
+    ///   - config: mage generation configuration
+    ///   - pipeline: A pipeline used to generate image samples from text input using stable diffusion
+    /// - Returns: An array of `imageCount` optional images.
+    ///            The images will be nil if safety checks were performed and found the result to be un-safe
     public func generate(
         with config: StableDiffusionPipeline.Configuration,
         by pipeline: StableDiffusionPipeline
@@ -35,6 +44,18 @@ public actor ModelsManager{
         }
     }
     
+    /// Get image generation configuration
+    /// - Parameters:
+    ///   - prompt: Text prompt to guide sampling
+    ///   - negativePrompt: Negative text prompt to guide sampling
+    ///   - inputImage: Starting image for image2image or in-painting
+    ///   - seed: Random seed which to start generation
+    ///   - strength: Strength
+    ///   - guidanceScale: Controls the influence of the text prompt on sampling process (0=random images)
+    ///   - stepCount: Number of inference steps to perform
+    ///   - disableSafety: Safety checks
+    ///   - schedulerType: The type of Scheduler to use
+    /// - Returns: Image generation configuration
     nonisolated
     public func getConfig (
         _ prompt : String,

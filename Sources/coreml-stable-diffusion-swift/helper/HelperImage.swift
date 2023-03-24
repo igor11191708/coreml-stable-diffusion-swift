@@ -13,14 +13,11 @@ import SwiftUI
 import AppKit
 
 @available(macOS 13.1, *)
-public func getImage(from data : Data?, cropped toSize : NSSize? = nil) async -> Image?{
-    
-    guard let nsImage = await getNSImage(from: data, cropped: toSize) else{ return nil }
-    
-    return Image(nsImage: nsImage)
-}
-
-@available(macOS 13.1, *)
+/// Get NSImage from data
+/// - Parameters:
+///   - data: Data
+///   - toSize: Fit to size
+/// - Returns: NSImage
 public func getNSImage(from data : Data?, cropped toSize : NSSize? = nil) async -> NSImage? {
 
     guard let value = data else{
@@ -42,6 +39,10 @@ public func getNSImage(from data : Data?, cropped toSize : NSSize? = nil) async 
     return cropped
 }
 
+/// Get image from CGImage
+/// - Parameter cgImage: CGImage
+/// - Returns: Image
+@available(macOS 13.1, *)
 public func getImage(cgImage : CGImage?) -> Image?{
     
     guard let value = cgImage else{
@@ -54,28 +55,10 @@ public func getImage(cgImage : CGImage?) -> Image?{
 }
 
 @available(macOS 13.1, *)
+/// Get CGImage from Data
+/// - Parameter data: Data
+/// - Returns: CGImage
 func getCGImage(from data : Data) -> CGImage?{
     NSImage(data: data)?.CGImage
-}
-
-#endif
-
-#if os(iOS)
-
-import UIKit
-
-@available(iOS 16.2, *)
-public func getImage(from data : Data) -> Image?{
-    guard let uiImage = UIImage(data: data) else {
-        return nil
-    }
-    
-    return Image(uiImage: uiImage)
-}
-
-@available(iOS 16.2, *)
-func getCGImage(from data : Data) -> CGImage?{
-    // TODO: omplement
-    return nil
 }
 #endif

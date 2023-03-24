@@ -9,7 +9,8 @@ import Foundation
 
 extension URL {
     
-    @available(iOS 16.2, macOS 13.1, *)
+    @available(iOS 16.2, macOS 13.1, *)    
+    /// Check is directory
     var isDirectory: Bool {
         return (try? resourceValues(forKeys: [.isDirectoryKey]))?.isDirectory == true
     }

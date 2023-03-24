@@ -8,11 +8,12 @@
 import Foundation
 import AppKit
 
-
 #if os(macOS)
 /// https://stackoverflow.com/questions/24595908/swift-nsimage-to-cgimage
 @available(macOS 13.1, *)
 extension NSImage {
+    
+    /// Get CGImage from NSImage
    public var CGImage: CGImage? {
         get {
             guard let imageData = self.tiffRepresentation else{
