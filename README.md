@@ -60,3 +60,7 @@ Take a look on [the video demonstration](https://youtu.be/GYC8VveChHI)
 ## Documentation(API)
 - You need to have Xcode 13 installed in order to have access to Documentation Compiler (DocC)
 - Go to Product > Build Documentation or **⌃⇧⌘ D**
+
+## Used packages
+[Files](https://github.com/JohnSundell/Files)
+[Stable Diffusion](https://github.com/apple/ml-stable-diffusion)

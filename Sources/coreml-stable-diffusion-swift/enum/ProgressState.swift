@@ -7,8 +7,8 @@
 
 import Foundation
 
-@available(iOS 16.2, macOS 13.1, *)
 /// Indicates of the current stage of generating images
+@available(iOS 16.2, macOS 13.1, *)
 public enum ProgressState{
     /// At the begging after app was launched
     case idle

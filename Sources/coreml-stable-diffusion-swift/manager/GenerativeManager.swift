@@ -9,8 +9,8 @@ import Foundation
 import StableDiffusion
 import CoreML
 
+/// The manager for generating images
 @available(iOS 16.2, macOS 13.1, *)
-/// The manager for generating images 
 public actor GenerativeManager{
    
     // MARK: - Life circle

@@ -12,7 +12,6 @@ import StableDiffusion
 public extension GenerativeManager{
     
     /// Schedulers compatible with StableDiffusionPipeline
-    @available(iOS 16.2, macOS 13.1, *)
     struct Scheduler: Hashable{
         /// Schedulers compatible with StableDiffusionPipeline
         public let type : StableDiffusionScheduler

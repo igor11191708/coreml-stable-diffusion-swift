@@ -12,12 +12,12 @@ import SwiftUI
 
 import AppKit
 
-@available(macOS 13.1, *)
 /// Get NSImage from data
 /// - Parameters:
 ///   - data: Data
 ///   - toSize: Fit to size
 /// - Returns: NSImage
+@available(macOS 13.1, *)
 public func getNSImage(from data : Data?, cropped toSize : NSSize? = nil) async -> NSImage? {
 
     guard let value = data else{
@@ -54,11 +54,4 @@ public func getImage(cgImage : CGImage?) -> Image?{
     return Image(nsImage: nsImage)
 }
 
-@available(macOS 13.1, *)
-/// Get CGImage from Data
-/// - Parameter data: Data
-/// - Returns: CGImage
-func getCGImage(from data : Data) -> CGImage?{
-    NSImage(data: data)?.CGImage
-}
 #endif
