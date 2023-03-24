@@ -4,7 +4,7 @@ The package is a mediator between [Apple's Core ML Stable Diffusion implementati
 
   ![Http requests](https://github.com/The-Igor/coreml-stable-diffusion-swift/blob/main/Sources/img/app.png) 
 
-## Huggingface/swift-coreml-diffusers
+## Official Huggingface/swift-coreml-diffusers
 [Swift app demonstrating Core ML Stable Diffusion](https://github.com/huggingface/swift-coreml-diffusers)
 
 ## How to use the package
