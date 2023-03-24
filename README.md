@@ -1,6 +1,6 @@
 # CoreML stable diffusion image generation
 
-There are numerous versions of Stable Diffusion available on the Hugging Face Hub
+The package is a mediator between [Stable Diffusion](https://github.com/apple/ml-stable-diffusion) and your app that let you run text-to-image or image-to-image models from [Hugging Face](https://huggingface.co) to generate images
 
   ![Http requests](https://github.com/The-Igor/coreml-stable-diffusion-swift/blob/main/Sources/img/app.png) 
 
