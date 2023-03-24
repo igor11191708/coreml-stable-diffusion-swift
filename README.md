@@ -2,13 +2,13 @@
 
 There are numerous versions of Stable Diffusion available on the Hugging Face Hub
 
-#How to use
-## 1. Create GenerativeManager
+# How to use
+### 1. Create GenerativeManager
 
 ```swift
    let manager = GenerativeManager()
 ```
-## 2. Run async method
+### 2. Run async method
 
 ```swift
        let images: [CGImage?] = try await manager.generate(
