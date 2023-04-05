@@ -8,7 +8,7 @@ The package is a mediator between [Apple's Core ML Stable Diffusion implementati
 ```swift
    let manager = GenerativeManager()
 ```
-### 2. Run async method
+### 2. Run async method *generate*
 
 ```swift
        let images: [CGImage?] = try await manager.generate(
