@@ -25,7 +25,9 @@ The package is a mediator between [Apple's Core ML Stable Diffusion implementati
 [CoreML stable diffusion image generation](https://github.com/The-Igor/coreml-stable-diffusion-swift-example)
 
   ![The concept](https://github.com/The-Igor/coreml-stable-diffusion-swift-example/blob/main/img/img_01.png)
-
+  
+  ![The concept](https://github.com/The-Igor/coreml-stable-diffusion-swift-example/blob/main/img/img_03.png)
+  
 ## Documentation(API)
 - You need to have Xcode 13 installed in order to have access to Documentation Compiler (DocC)
 - Go to Product > Build Documentation or **⌃⇧⌘ D**
