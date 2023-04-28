@@ -17,7 +17,7 @@ let package = Package(
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
-        .package(url: "https://github.com/apple/ml-stable-diffusion.git", from: "0.3.0"),
+        .package(url: "https://github.com/apple/ml-stable-diffusion.git", .exactItem("0.3.0")),
         .package(url: "https://github.com/JohnSundell/Files.git",
                  from: "4.2.0")
     ],
