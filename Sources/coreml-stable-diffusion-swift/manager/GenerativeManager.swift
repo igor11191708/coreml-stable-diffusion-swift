@@ -8,6 +8,9 @@
 import Foundation
 import StableDiffusion
 import CoreML
+import OSLog
+
+private let logger = Logger(subsystem: "CoreML Stable diffusion", category: "GenerativeManager")
 
 /// The manager for generating images
 @available(iOS 16.2, macOS 13.1, *)
@@ -38,7 +41,7 @@ public actor GenerativeManager: IGenerativeManager{
     {
         try pipeline.generateImages(configuration: config) { progress in
             #if DEBUG
-                print(progress.step)
+            logger.info("Progress step: \(progress.step)")
             #endif
             return !Task.isCancelled
         }
