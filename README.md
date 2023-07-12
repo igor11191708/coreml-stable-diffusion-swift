@@ -19,6 +19,10 @@ The package is a mediator between [Apple's Core ML Stable Diffusion implementati
                 by: pipeline
             )
 ```
+### Performance
+
+ The speed can be unpredictable. Sometimes a model will suddenly run a lot slower than before. It appears as if Core ML is trying to be smart in how it schedules things, but doesn’t always optimal.
+
 
 ## SwiftUI example
 
