@@ -5,11 +5,14 @@
 //  Created by Igor on 22.03.2023.
 //
 
-import AppKit
+
 import Files
+#if canImport(AppKit)
+import AppKit
+#endif
+
 
 #if os(macOS)
-
 /// Get list of models from the models directory
 /// - Returns: List of model
 @available(macOS 13.1, *)
