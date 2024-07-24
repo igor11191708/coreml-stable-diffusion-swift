@@ -5,10 +5,12 @@
 //  Created by Igor on 23.03.2023.
 //
 
+
+#if os(macOS)
+
 import Foundation
 import AppKit
 
-#if os(macOS)
 /// https://stackoverflow.com/questions/24595908/swift-nsimage-to-cgimage
 @available(macOS 13.1, *)
 extension NSImage {
