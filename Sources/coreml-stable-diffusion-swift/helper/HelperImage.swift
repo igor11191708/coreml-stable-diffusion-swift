@@ -18,7 +18,6 @@ import AppKit
 ///   - toSize: Fit to size
 /// - Returns: NSImage
 @available(macOS 13.1, *)
-@MainActor
 public func getNSImage(from data : Data?, cropped toSize : NSSize? = nil) async -> NSImage? {
 
     guard let value = data else{
