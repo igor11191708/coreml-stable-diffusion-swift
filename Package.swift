@@ -7,7 +7,7 @@ let package = Package(
     name: "coreml-stable-diffusion-swift",
     platforms: [
         .macOS(.v13),
-        .iOS(.v16),
+        .iOS("16.2"), // Updated to support iOS 16.2
     ],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
@@ -17,7 +17,7 @@ let package = Package(
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
-        .package(url: "https://github.com/apple/ml-stable-diffusion.git", .exactItem("0.3.0")),
+        .package(url: "https://github.com/apple/ml-stable-diffusion.git", .exactItem("1.1.1")),
         .package(url: "https://github.com/JohnSundell/Files.git",
                  from: "4.2.0")
     ],

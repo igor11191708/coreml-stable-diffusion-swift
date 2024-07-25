@@ -8,7 +8,7 @@
 import Foundation
 
 /// Model  profile description
-@available(iOS 16.0, macOS 13.1, *)
+@available(iOS 16.2, macOS 13.1, *)
 public struct GenerativeModel: Hashable, Identifiable{
     
     // MARK: - Life circle

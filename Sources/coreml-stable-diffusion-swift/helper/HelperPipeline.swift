@@ -29,7 +29,7 @@ public func getDiffusionPipeline(
     config.computeUnits = computeUnits
     
     return try .init(
-        resourcesAt: url,
+        resourcesAt: url, controlNet: [],
         configuration : config,
         disableSafety: disableSafety,
         reduceMemory : reduceMemory

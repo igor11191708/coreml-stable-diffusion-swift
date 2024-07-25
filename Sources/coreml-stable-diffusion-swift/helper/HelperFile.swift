@@ -56,7 +56,7 @@ public func initFolder(name : String) throws{
 #elseif os(iOS)
 /// Get list of models from the models directory
 /// - Returns: List of model
-@available(iOS 16.0, *)
+@available(iOS 16.2, *)
 internal func listOfModels() async -> [GenerativeModel] {
     guard let docs = Folder.documents, let folder = try? docs.subfolder(at: "models") else {
         return []
@@ -68,7 +68,7 @@ internal func listOfModels() async -> [GenerativeModel] {
 }
 
 /// Show the models directory in the Files app
-@available(iOS 16.0, *)
+@available(iOS 16.2, *)
 public func showInFilesApp() {
     guard let url = Folder.documents?.url else { return }
     
@@ -79,7 +79,7 @@ public func showInFilesApp() {
 /// Create a folder
 /// - Parameter name: Name of the folder to create
 /// - Throws: Could not create a folder
-@available(iOS 16.0, *)
+@available(iOS 16.2, *)
 public func initFolder(name: String) throws {
     if let docs = Folder.documents {
         if docs.containsSubfolder(named: name) == false {
