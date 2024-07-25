@@ -10,7 +10,9 @@ import Files
 #if canImport(AppKit)
 import AppKit
 #endif
-
+#if canImport(UIKit)
+import UIKit
+#endif
 
 #if os(macOS)
 /// Get list of models from the models directory
@@ -47,6 +49,41 @@ public func initFolder(name : String) throws{
     if let docs = Folder.documents{
         if docs.containsSubfolder(named: name) == false{
            try docs.createSubfolder(named: name)
+        }
+    }
+}
+
+#elseif os(iOS)
+/// Get list of models from the models directory
+/// - Returns: List of model
+@available(iOS 16.0, *)
+internal func listOfModels() async -> [GenerativeModel] {
+    guard let docs = Folder.documents, let folder = try? docs.subfolder(at: "models") else {
+        return []
+    }
+    
+    return folder.subfolders.map {
+        GenerativeModel(url: $0.url, name: $0.name)
+    }
+}
+
+/// Show the models directory in the Files app
+@available(iOS 16.0, *)
+public func showInFilesApp() {
+    guard let url = Folder.documents?.url else { return }
+    
+    // Open the Files app at the specified URL
+    UIApplication.shared.open(url)
+}
+
+/// Create a folder
+/// - Parameter name: Name of the folder to create
+/// - Throws: Could not create a folder
+@available(iOS 16.0, *)
+public func initFolder(name: String) throws {
+    if let docs = Folder.documents {
+        if docs.containsSubfolder(named: name) == false {
+            try docs.createSubfolder(named: name)
         }
     }
 }
