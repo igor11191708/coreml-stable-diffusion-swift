@@ -52,97 +52,58 @@ extension NSImage {
         return nil
     }
     
-    ///  Copies the current image and resizes it to the given size.
-    ///
-    ///  - parameter size: The size of the new image.
-    ///
-    ///  - returns: The resized copy of the given image.
-    func copy(size: NSSize) -> NSImage? {
-        // Create a new rect with given width and height
-        let frame = NSMakeRect(0, 0, size.width, size.height)
+    /// Resizes and crops the image to the specified size.
+    /// - Parameter innerSize: The target size to resize and crop the image to.
+    /// - Returns: A new `NSImage` object that is resized and cropped to the specified size, or `nil` if the operation fails.
+    func resizeAndCrop(to innerSize: NSSize) -> NSImage? {
+        let aspectWidth = innerSize.width / self.size.width
+        let aspectHeight = innerSize.height / self.size.height
+        let aspectRatio = max(aspectWidth, aspectHeight)
         
-        // Get the best representation for the given size.
-        guard let rep = self.bestRepresentation(for: frame, context: nil, hints: nil) else {
+        let aspectFillSize = NSSize(width: self.size.width * aspectRatio, height: self.size.height * aspectRatio)
+        
+        guard let resizedImage = self.resize(to: aspectFillSize) else {
             return nil
         }
         
-        // Create an empty image with the given size.
-        let img = NSImage(size: size)
+        let croppedImage = resizedImage.crop(to: innerSize)
         
-        // Set the drawing context and make sure to remove the focus before returning.
-        img.lockFocus()
-        defer { img.unlockFocus() }
-
-        // Draw the new image
-        if rep.draw(in: frame) {
-            return img
-        }
-
-        // Return nil in case something went wrong.
-        return nil
+        return croppedImage
     }
     
-    ///  Copies the current image and resizes it to the size of the given NSSize, while
-    ///  maintaining the aspect ratio of the original image.
-    ///
-    ///  - parameter size: The size of the new image.
-    ///
-    ///  - returns: The resized copy of the given image.
-    func resizeWhileMaintainingAspectRatioToSize(size: NSSize) -> NSImage? {
-        let newSize: NSSize
-        
-        let widthRatio  = size.width / self.width
-        let heightRatio = size.height / self.height
-        
-        if widthRatio > heightRatio {
-            newSize = NSSize(width: floor(self.width * widthRatio), height: floor(self.height * widthRatio))
-        } else {
-            newSize = NSSize(width: floor(self.width * heightRatio), height: floor(self.height * heightRatio))
-        }
-        
-        return self.copy(size: newSize)
+    /// Resizes the image to the specified size while maintaining the aspect ratio.
+    /// - Parameter size: The target size to resize the image to.
+    /// - Returns: A new `NSImage` object that is resized to the specified size, or `nil` if the operation fails.
+    func resize(to size: NSSize) -> NSImage? {
+        let newImage = NSImage(size: size)
+        newImage.lockFocus()
+        self.draw(in: NSRect(origin: .zero, size: size),
+                  from: NSRect(origin: .zero, size: self.size),
+                  operation: .copy,
+                  fraction: 1.0)
+        newImage.unlockFocus()
+        return newImage
     }
     
-    ///  Copies and crops an image to the supplied size.
-    ///
-    ///  - parameter size: The size of the new image.
-    ///
-    ///  - returns: The cropped copy of the given image.
-    func crop(size: NSSize) -> NSImage? {
-        // Resize the current image, while preserving the aspect ratio.
-        guard let resized = self.resizeWhileMaintainingAspectRatioToSize(size: size) else {
-            return nil
-        }
-        // Get some points to center the cropping area.
-        let x = floor((resized.width - size.width) / 2)
-        let y = floor((resized.height - size.height) / 2)
-        
-        // Create the cropping frame.
-        let frame = NSMakeRect(x, y, size.width, size.height)
-        
-        // Get the best representation of the image for the given cropping frame.
-        guard let rep = resized.bestRepresentation(for: frame, context: nil, hints: nil) else {
+    /// Crops the image to the specified size.
+    /// - Parameter size: The target size to crop the image to.
+    /// - Returns: A new `NSImage` object that is cropped to the specified size, or `nil` if the operation fails.
+    func crop(to size: NSSize) -> NSImage? {
+        guard let cgImage = self.cgImage(forProposedRect: nil, context: nil, hints: nil) else {
             return nil
         }
         
-        // Create a new image with the new size
-        let img = NSImage(size: size)
+        let croppingRect = CGRect(x: (cgImage.width - Int(size.width)) / 2,
+                                  y: (cgImage.height - Int(size.height)) / 2,
+                                  width: Int(size.width),
+                                  height: Int(size.height))
         
-        img.lockFocus()
-        defer { img.unlockFocus() }
-        
-        if rep.draw(in: NSMakeRect(0, 0, size.width, size.height),
-                    from: frame,
-                    operation: NSCompositingOperation.copy,
-                    fraction: 1.0,
-                    respectFlipped: false,
-                    hints: [:]) {
-            // Return the cropped image.
-            return img
+        guard let croppedCGImage = cgImage.cropping(to: croppingRect) else {
+            return nil
         }
         
-        // Return nil in case anything fails.
-        return nil
+        let croppedImage = NSImage(cgImage: croppedCGImage, size: size)
+        return croppedImage
     }
     
     ///  Saves the PNG representation of the current image to the HD.

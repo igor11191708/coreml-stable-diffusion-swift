@@ -28,11 +28,11 @@ public func getNSImage(from data : Data?, cropped toSize : NSSize? = nil) async 
         return nil
     }
     
-    guard let size = toSize else{
+    guard let size = toSize ?? adjustSize(for: nsImage) else{
         return nsImage
     }
     
-    guard let cropped = nsImage.crop(size: size)else{
+    guard let cropped = nsImage.resizeAndCrop(to: size)else{
                 return nil
             }
     
@@ -52,6 +52,32 @@ public func getImage(cgImage : CGImage?) -> Image?{
     let nsImage = NSImage(cgImage: value, size: .init(width: value.width, height: value.height))
     
     return Image(nsImage: nsImage)
+}
+
+/// Determines the largest square size from a predefined set of sizes that can fit within the given image's dimensions.
+/// - Parameter image: The input `NSImage` to be adjusted.
+/// - Returns: An `NSSize` representing the largest possible square size that fits within the image's dimensions, or `nil` if the image is too small.
+@available(macOS 13.1, *)
+func adjustSize(for image: NSImage) -> NSSize? {
+    let predefinedSizes: [CGFloat] = [512]
+    
+    let width = image.size.width
+    let height = image.size.height
+    
+    guard width >= 256, height >= 256 else {
+        return nil
+    }
+    
+    let minDimension = min(width, height)
+    
+    // Find the largest predefined size that can fit within the image dimensions
+    for size in predefinedSizes.reversed() {
+        if minDimension >= size {
+            return NSSize(width: size, height: size)
+        }
+    }
+    
+    return nil
 }
 
 #endif

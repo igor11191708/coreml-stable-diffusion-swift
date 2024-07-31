@@ -40,9 +40,7 @@ public actor GenerativeManager: IGenerativeManager{
     ) async throws -> [CGImage?]
     {
         try pipeline.generateImages(configuration: config) { progress in
-            #if DEBUG
             logger.info("Progress step: \(progress.step)")
-            #endif
             return !Task.isCancelled
         }
     }

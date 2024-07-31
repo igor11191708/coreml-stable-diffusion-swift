@@ -24,6 +24,7 @@ import CoreML
 @available(iOS 16.2, macOS 13.1, *)
 public func getDiffusionPipeline(
     for url : URL,
+    _ controlNet: [String] = [],
     _ disableSafety : Bool = false,
     _ reduceMemory : Bool = false,
     _ computeUnits : MLComputeUnits = .cpuAndGPU
@@ -37,7 +38,7 @@ public func getDiffusionPipeline(
     // The pipeline is configured with optional parameters to disable safety checks and reduce memory usage.
     return try .init(
         resourcesAt: url, // The URL where the pipeline resources are located.
-        controlNet: [],   // An empty array for controlNet as no control network is being passed.
+        controlNet: controlNet,   // An empty array for controlNet as no control network is being passed.
         configuration: config, // The MLModelConfiguration object with the compute units setting.
         disableSafety: disableSafety, // A boolean flag to disable safety checks if set to true.
         reduceMemory: reduceMemory // A boolean flag to reduce memory usage if set to true.
