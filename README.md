@@ -5,9 +5,7 @@
 
 The package is a mediator between Apple's Core ML Stable Diffusion implementation and your app that let you run text-to-image or image-to-image models
 
-## SwiftUI example
-
-[CoreML stable diffusion image generation](https://github.com/The-Igor/coreml-stable-diffusion-swift-example)
+## [SwiftUI example](https://github.com/The-Igor/coreml-stable-diffusion-swift-example)
   
 ## How to use the package
 ### 1. Create GenerativeManager
