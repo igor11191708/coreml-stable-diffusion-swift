@@ -34,6 +34,20 @@ The package is a mediator between Apple's Core ML Stable Diffusion implementatio
   
   ![The concept](https://github.com/The-Igor/coreml-stable-diffusion-swift-example/blob/main/img/img_03.png)
   
+### Typical set of files for a model und the purpose of each file
+
+| File Name                            | Description                                                      |
+|--------------------------------------|------------------------------------------------------------------|
+| `TextEncoder.mlmodelc`               | Encodes input text into a vector space for further processing.   |
+| `Unet.mlmodelc`                      | Core model handling the transformation of encoded vectors into intermediate image representations. |
+| `UnetChunk1.mlmodelc`                | First segment of a segmented U-Net model for optimized processing in environments with memory constraints. |
+| `UnetChunk2.mlmodelc`                | Second segment of the segmented U-Net model, completing the tasks started by the first chunk. |
+| `VAEDecoder.mlmodelc`                | Decodes the latent representations into final image outputs.     |
+| `VAEEncoder.mlmodelc`                | Compresses input image data into a latent space for reconstruction or further processing. |
+| `SafetyChecker.mlmodelc`             | Ensures generated content adheres to safety guidelines by checking against predefined criteria. |
+| `vocab.json`                         | Contains the vocabulary used by the text encoder for tokenization and encoding processes. |
+| `merges.txt`                         | Stores the merging rules for byte-pair encoding used in the text encoder. |  
+  
 ## Documentation(API)
 - You need to have Xcode 13 installed in order to have access to Documentation Compiler (DocC)
 - Go to Product > Build Documentation or **⌃⇧⌘ D**
