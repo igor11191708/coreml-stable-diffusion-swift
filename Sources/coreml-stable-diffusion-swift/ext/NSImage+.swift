@@ -29,7 +29,6 @@ extension NSImage {
     }
 }
 
-/// https://gist.github.com/MaciejGad/11d8469b218817290ee77012edb46608
 @available(macOS 13.1, *)
 extension NSImage {
     
