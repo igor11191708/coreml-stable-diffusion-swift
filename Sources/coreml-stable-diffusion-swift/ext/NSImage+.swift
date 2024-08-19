@@ -116,4 +116,3 @@ extension NSImage {
 }
 
 #endif
-
