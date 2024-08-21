@@ -1,7 +1,6 @@
 # CoreML stable diffusion image generation
 
-[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2FThe-Igor%2Fcoreml-stable-diffusion-swift%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/The-Igor/coreml-stable-diffusion-swift)
-[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2FThe-Igor%2Fcoreml-stable-diffusion-swift%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/The-Igor/coreml-stable-diffusion-swift)
+[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Figor11191708%2Fcoreml-stable-diffusion-swift%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/igor11191708/coreml-stable-diffusion-swift)
 
 The package is a mediator between Apple's Core ML Stable Diffusion implementation and your app that let you run text-to-image or image-to-image models
 
