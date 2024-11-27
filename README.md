@@ -6,6 +6,8 @@ The package is a mediator between Apple's Core ML Stable Diffusion implementatio
 
 ## [SwiftUI example](https://github.com/The-Igor/coreml-stable-diffusion-swift-example)
   
+## [Documentation(API)](https://swiftpackageindex.com/igor11191708/coreml-stable-diffusion-swift/main/documentation/coreml_stable_diffusion_swift)
+  
 ## How to use the package
 ### 1. Create GenerativeManager
 
