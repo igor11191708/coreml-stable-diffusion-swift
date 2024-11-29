@@ -1,12 +1,12 @@
 # CoreML stable diffusion image generation
 
-[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Figor11191708%2Fcoreml-stable-diffusion-swift%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/igor11191708/coreml-stable-diffusion-swift)
+[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fswiftuiux%2Fcoreml-stable-diffusion-swift%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/swiftuiux/coreml-stable-diffusion-swift)
 
 The package is a mediator between Apple's Core ML Stable Diffusion implementation and your app that let you run text-to-image or image-to-image models
 
-## [SwiftUI example](https://github.com/The-Igor/coreml-stable-diffusion-swift-example)
+## [SwiftUI example](https://github.com/swiftuiux/coreml-stable-diffusion-swift-example)
   
-## [Documentation(API)](https://swiftpackageindex.com/igor11191708/coreml-stable-diffusion-swift/main/documentation/coreml_stable_diffusion_swift)
+## [Documentation(API)](https://swiftpackageindex.com/swiftuiux/coreml-stable-diffusion-swift/main/documentation/coreml_stable_diffusion_swift)
   
 ## How to use the package
 ### 1. Create GenerativeManager
@@ -29,9 +29,9 @@ The package is a mediator between Apple's Core ML Stable Diffusion implementatio
 
 
 
-  ![The concept](https://github.com/The-Igor/coreml-stable-diffusion-swift-example/blob/main/img/img_01.png)
+  ![The concept](https://github.com/swiftuiux/coreml-stable-diffusion-swift-example/blob/main/img/img_01.png)
   
-  ![The concept](https://github.com/The-Igor/coreml-stable-diffusion-swift-example/blob/main/img/img_03.png)
+  ![The concept](https://github.com/swiftuiux/coreml-stable-diffusion-swift-example/blob/main/img/img_03.png)
   
 ### Typical set of files for a model und the purpose of each file
 
